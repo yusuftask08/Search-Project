@@ -1,12 +1,18 @@
 <template>
-  <div class="search-bar-container">
+  <div class="search-input-container">
     <input
       :style="notFoundData == true ? { border: '2px solid red' } : ''"
       class="search-input"
       v-model="searchQuery"
       @keydown.enter="sendSearchQuery"
     />
-    <button class="search-input__btn" @click="sendSearchQuery">Search</button>
+    <button
+      :style="$route.path === '/search' ? { backgroundColor: '#4F75C2' } : ''"
+      class="search-input__btn"
+      @click="sendSearchQuery"
+    >
+      Search
+    </button>
   </div>
 </template>
 <script>
@@ -22,6 +28,12 @@ export default {
     sendSearchQuery() {
       if (this.searchQuery.length > 0) {
         this.$store.dispatch(GET_SEARCH_RESULT, this.searchQuery);
+      }
+    },
+    init() {
+      if (this.$route.path === "/search") {
+        this.searchQuery = localStorage.getItem("search-query");
+      } else {
         this.searchQuery = "";
       }
     },
@@ -31,8 +43,8 @@ export default {
       notFoundData: "getNotFoundData",
     }),
   },
+  created() {
+    this.init();
+  },
 };
 </script>
-
-<style>
-</style>

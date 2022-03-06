@@ -1,10 +1,5 @@
 <template>
-  <li
-    :class="{
-      'search-input-item': $route.path === '/search',
-      'list-item': $route.path === '/',
-    }"
-  >
+  <li :class="this.$route.path !== '/' ? 'search-input-item' : 'list-item'">
     <div class="list-item__container">
       <div class="list-item__left">
         <div class="list-item__top">
@@ -20,7 +15,6 @@
         </div>
       </div>
     </div>
-    <hr />
   </li>
 </template>
 <script>
