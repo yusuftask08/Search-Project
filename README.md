@@ -1,6 +1,17 @@
-# search-project
+<h1 align="center">Tesodev Search App :mag_right: </h1> 
 
-## Project setup
+The application allows you to search and sort the search by name and year. 👀
+
+## Features :star2:	
+
+- [x] Vuejs
+- [x] Vuex
+- [x] Axios
+- [x] Sort by order
+- [x] Pagination
+- [ ] Test
+
+## Project setup 📦
 ```
 npm install
 ```
