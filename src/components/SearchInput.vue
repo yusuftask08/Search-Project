@@ -26,9 +26,8 @@ export default {
   },
   methods: {
     sendSearchQuery() {
-      if (this.searchQuery.length > 0) {
-        this.$store.dispatch(GET_SEARCH_RESULT, this.searchQuery);
-      }
+      if (!this.searchQuery) return;
+      this.$store.dispatch(GET_SEARCH_RESULT, this.searchQuery);
     },
     init() {
       if (this.$route.path === "/search") {
